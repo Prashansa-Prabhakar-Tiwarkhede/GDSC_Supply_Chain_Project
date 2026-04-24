@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SupplyMind AI — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;
+  --card:#0a1220;
+  --border:rgba(255,255,255,0.08);
+  --blue:#3b82f6;
+  --blue2:#60a5fa;
+  --green:#10d9a0;
+  --text:#e2eaf8;
+  --muted:#6b7fa0;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* animated background grid */
+.bg-grid{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,130,246,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{from{transform:translateY(0)}to{transform:translateY(60px)}}
+
+/* floating orbs */
+.orb{
+  position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;
+  animation:float 8s ease-in-out infinite;
+}
+.orb1{width:400px;height:400px;background:rgba(59,130,246,0.08);top:-100px;right:-100px;}
+.orb2{width:300px;height:300px;background:rgba(16,217,160,0.06);bottom:-50px;left:-50px;animation-delay:-3s;}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.02)}}
+
+.login-wrap{
+  position:relative;z-index:10;
+  width:440px;
+}
+
+/* brand */
+.brand{text-align:center;margin-bottom:36px}
+.brand-logo{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  letter-spacing:-0.5px;
+}
+.brand-logo .dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 12px var(--green);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 12px var(--green)}50%{opacity:0.6;box-shadow:0 0 6px var(--green)}}
+.brand-logo span{color:var(--blue2)}
+.brand-sub{font-size:13px;color:var(--muted);margin-top:7px;letter-spacing:0.3px}
+
+/* card */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px 40px;
+  box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.card-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:6px}
+.card-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+
+.field{margin-bottom:18px}
+.field label{
+  display:block;font-size:11px;font-weight:500;
+  color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px;
+}
+.field input{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);border-radius:10px;
+  color:var(--text);padding:11px 14px;font-size:14px;
+  font-family:'DM Sans',sans-serif;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  outline:none;
+}
+.field input:focus{
+  border-color:rgba(59,130,246,0.5);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+}
+.field input::placeholder{color:var(--muted)}
+
+.error{
+  background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);
+  border-radius:8px;padding:10px 14px;font-size:13px;color:#f87171;
+  margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
+
+.btn-login{
+  width:100%;padding:13px;
+  background:linear-gradient(135deg,var(--blue),#6366f1);
+  color:#fff;border:none;border-radius:10px;
+  font-family:'Syne',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;letter-spacing:0.3px;
+  transition:opacity 0.2s,transform 0.1s;
+  margin-top:6px;
+}
+.btn-login:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-login:active{transform:translateY(0)}
+
+.divider{
+  display:flex;align-items:center;gap:12px;
+  margin:22px 0;color:var(--muted);font-size:12px;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+.demo-creds{
+  background:rgba(16,217,160,0.05);
+  border:1px solid rgba(16,217,160,0.15);
+  border-radius:10px;padding:14px;font-size:12.5px;
+}
+.demo-creds strong{color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:0.6px;display:block;margin-bottom:8px}
+.cred-row{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:4px}
+.cred-row:last-child{margin-bottom:0}
+.cred-row span{color:var(--text);font-family:monospace;font-size:13px}
+
+.quick-fill{
+  display:flex;gap:8px;margin-top:10px;
+}
+.qf-btn{
+  flex:1;padding:6px;background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);border-radius:7px;
+  color:var(--muted);font-size:11.5px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.15s;
+}
+.qf-btn:hover{border-color:var(--blue);color:var(--blue2)}
+
+.features{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  margin-top:28px;
+}
+.feat{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 12px;border-radius:8px;
+  background:rgba(255,255,255,0.02);border:1px solid var(--border);
+  font-size:11.5px;color:var(--muted);
+}
+.feat-icon{font-size:15px}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<div class="login-wrap">
+  <div class="brand">
+    <div class="brand-logo">
+      <div class="dot"></div>
+      Supply<span>Mind</span> AI
+    </div>
+    <div class="brand-sub">Self-Healing Supply Chain Intelligence Platform</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Welcome back</div>
+    <div class="card-sub">Sign in to your operations dashboard</div>
+
+    {% if error %}
+    <div class="error">⚠️ {{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="/login">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter your username" autocomplete="username" required/>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required/>
+      </div>
+      <button type="submit" class="btn-login">Sign In →</button>
+    </form>
+
+    <div class="divider">Demo Credentials</div>
+
+    <div class="demo-creds">
+      <strong>Quick Access</strong>
+      <div class="cred-row">Admin account <span>admin / admin123</span></div>
+      <div class="cred-row">Demo account <span>demo / demo123</span></div>
+      <div class="quick-fill">
+        <button class="qf-btn" onclick="fill('admin','admin123')">Fill Admin</button>
+        <button class="qf-btn" onclick="fill('demo','demo123')">Fill Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feat"><span class="feat-icon">🤖</span>Gemini AI Assistant</div>
+    <div class="feat"><span class="feat-icon">📡</span>Live Fleet Tracking</div>
+    <div class="feat"><span class="feat-icon">⚡</span>Self-Healing Engine</div>
+    <div class="feat"><span class="feat-icon">📈</span>ML Demand Forecast</div>
+  </div>
+</div>
+
+<script>
+function fill(u, p){
+  document.querySelector('[name=username]').value = u;
+  document.querySelector('[name=password]').value = p;
+}
+</script>
+</body>
+</html>
