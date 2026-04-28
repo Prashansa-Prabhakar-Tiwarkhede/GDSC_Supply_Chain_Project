@@ -20,7 +20,7 @@ SupplyMind AI is an intelligent, self-healing logistics platform that predicts d
 
 🎯 **Aligned with UN SDG 9**: Industry, Innovation & Infrastructure
 
----
+
 
 ## 🧠 The Self-Healing Workflow: How it Works
 SupplyMind AI follows a four-stage autonomous logic to bridge the gap between detection and recovery:
@@ -35,7 +35,7 @@ SupplyMind AI follows a four-stage autonomous logic to bridge the gap between de
 * **🌐 Enterprise Architecture:** A fully containerized, **Cloud-Native** design ready for instant scaling on **Google Cloud Run**.
 * **⚡ Hybrid Intelligence:** Combines the speed of traditional ML (Scikit-learn) with the contextual depth of LLMs (Gemini).
 
----
+
 Unlike traditional systems, SupplyMind AI doesn’t just detect problems—it **fixes them automatically**.
 
 ## ⚡ Quick Start (3 Steps)
