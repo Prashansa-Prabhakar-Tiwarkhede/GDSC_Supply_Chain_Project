@@ -20,14 +20,22 @@ SupplyMind AI is an intelligent, self-healing logistics platform that predicts d
 
 🎯 **Aligned with UN SDG 9**: Industry, Innovation & Infrastructure
 
+---
+
+## 🧠 The Self-Healing Workflow: How it Works
+SupplyMind AI follows a four-stage autonomous logic to bridge the gap between detection and recovery:
+1. **Detection:** Scans 8 real-time triggers (weather, port strikes, etc.) via `disruption_detector.py`.
+2. **AI Analysis:** **Google Gemini 1.5 Flash** synthesizes raw data to generate "Reasoning Summaries," explaining the *why* behind the risk.
+3. **Impact Prediction:** **Scikit-learn** models forecast cascading stockout risks over a 30-day horizon.
+4. **Autonomous Mitigation:** The `self_healer.py` engine computes optimal recovery paths, balancing cost and CO₂.
+
 ## 🌟 What Makes This Unique?
+* **🔄 Self-Healing Engine:** Unlike traditional dashboards that just report problems, SupplyMind AI **fixes** them.
+* **🤖 Transparent AI Reasoning:** Using **Gemini 1.5 Flash** to bridge the "trust gap" by explaining autonomous decisions in human-readable text.
+* **🌐 Enterprise Architecture:** A fully containerized, **Cloud-Native** design ready for instant scaling on **Google Cloud Run**.
+* **⚡ Hybrid Intelligence:** Combines the speed of traditional ML (Scikit-learn) with the contextual depth of LLMs (Gemini).
 
-* 🔄 Self-Healing Engine (not just prediction)
-* 🌐 Multi-region optimization (12+ regions simulated)
-* ⚡ Real-time decision system (not static dashboards)
-* 🤖 AI + ML hybrid architecture
-* ☁️ Cloud-native & scalable design
-
+---
 Unlike traditional systems, SupplyMind AI doesn’t just detect problems—it **fixes them automatically**.
 
 ## ⚡ Quick Start (3 Steps)
