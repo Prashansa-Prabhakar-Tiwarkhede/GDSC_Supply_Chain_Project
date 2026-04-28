@@ -4,7 +4,7 @@ SupplyMind AI is an intelligent, self-healing logistics platform that predicts d
 
 🌍 **Problem**: Traditional supply chains are reactive, leading to delays, stockouts, and massive financial losses.
 
-   # You can view our solution on : https://gdsc-supply-chain-project-2.onrender.com/login
+ > 🚀 **View the Live Prototype:** [gdsc-supply-chain-project-2.onrender.com](https://gdsc-supply-chain-project-2.onrender.com/login)
 
 💡 **Detailed Solution Explanation**: SupplyMind AI transforms logistics into a **proactive, AI-driven system** using:
 
